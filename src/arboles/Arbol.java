@@ -2,7 +2,7 @@ package arboles;
 
 import InterfazArbolBinario.InterfazArbol;
 
-public class Arbol<T extends Comparable> implements InterfazArbol <T>{
+public  class Arbol<T extends Comparable> implements InterfazArbol <T>{
 	
 	private  NodoArbol <T> raiz;
 	
@@ -88,6 +88,7 @@ public class Arbol<T extends Comparable> implements InterfazArbol <T>{
 			throw new Exception ("No se han ingresado datos");
 		}
 	}
+
 
 
 	
