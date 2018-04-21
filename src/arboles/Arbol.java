@@ -1,5 +1,6 @@
 package arboles;
 
+import java.util.ArrayList;
 
 public  class Arbol<T extends Comparable>{
 	
@@ -98,6 +99,10 @@ public  class Arbol<T extends Comparable>{
 		throw new Exception("El algoritmo debe utilizarse sobre nodos AVL");	
 		}
 	}
+	public void inOrder(ArrayList<T> participantes){
+		if(raiz!=null) raiz.inOrder(participantes);
+	}
+	
 
 
 
