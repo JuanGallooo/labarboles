@@ -8,6 +8,11 @@ public class Elemento implements Comparable<Elemento>{
 		this.numero = numero;
 		this.numeroCreado = numeroCreado;
 	}
+	public Elemento() {
+		super();
+		this.numero = -1;
+		this.numeroCreado = -1;
+	}
 	public int getNumero() {
 		return numero;
 	}
@@ -27,5 +32,9 @@ public class Elemento implements Comparable<Elemento>{
 		else if (o.getNumero()>numero)retorno=1;
 		return retorno;
 	}
-
+	@Override
+	public String toString() {
+		return "Elemento [numero=" + numero + ", numeroCreado=" + numeroCreado + "]";
+	}
+	
 }
