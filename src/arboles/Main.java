@@ -3,7 +3,7 @@ package arboles;
 import java.util.ArrayList;
 
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		ArbolRojoNegro<Elemento> arbol= new ArbolRojoNegro<Elemento>();
 		
@@ -22,7 +22,12 @@ public class Main {
 		
 		raizNodo.insertar(nodo1);
 		raizNodo.insertar(nodo2);
+<<<<<<< HEAD
 		ArrayList<NodoRojoNegro> gay = new ArrayList<NodoRojoNegro>();
 //		System.out.println(nill.inOrder(gay));
+=======
+		System.out.println(raizNodo.inOrder(raizNodo));
+	
+>>>>>>> d5099caca1c555364c899f6b7c5b6fb9b19e6df4
 	}
 }
