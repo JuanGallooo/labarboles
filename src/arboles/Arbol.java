@@ -1,8 +1,7 @@
 package arboles;
 
-import InterfazArbolBinario.InterfazArbol;
 
-public  class Arbol<T extends Comparable> implements InterfazArbol <T>{
+public  class Arbol<T extends Comparable>{
 	
 	private  NodoArbol <T> raiz;
 	
@@ -17,7 +16,7 @@ public  class Arbol<T extends Comparable> implements InterfazArbol <T>{
 		this.raiz = raiz;
 	}
 
-	@Override
+	
 	public void agregarNodo(NodoArbol<T> nodo) {
 		// TODO Auto-generated method stub
 		if(raiz == null){
@@ -29,7 +28,7 @@ public  class Arbol<T extends Comparable> implements InterfazArbol <T>{
 	
 	}
 
-	@Override
+	
 	public NodoArbol<T> eliminarNodo(NodoArbol<T> nodo)throws Exception {
 		// TODO Auto-generated method stub
 		NodoArbol<T> verificar = raiz.buscarNodo(nodo);
@@ -42,7 +41,7 @@ public  class Arbol<T extends Comparable> implements InterfazArbol <T>{
 	}
   }
 
-	@Override
+	
 	public NodoArbol<T> buscarNodo(NodoArbol<T> nodo) {
 		// TODO Auto-generated method stub
 		if(raiz != null){
@@ -55,7 +54,7 @@ public  class Arbol<T extends Comparable> implements InterfazArbol <T>{
 		
 	}
 
-	@Override
+	
 	public NodoArbol<T> minimo() {
 		// TODO Auto-generated method stub
 		if(raiz != null){
@@ -66,7 +65,7 @@ public  class Arbol<T extends Comparable> implements InterfazArbol <T>{
 		}
 	}
 
-	@Override
+	
 	public NodoArbol<T> maximo() {
 		// TODO Auto-generated method stub
 		if(raiz != null){
@@ -78,7 +77,7 @@ public  class Arbol<T extends Comparable> implements InterfazArbol <T>{
 	}
 
 
-	@Override
+	
 	public boolean esHoja() throws Exception {
 		// TODO Auto-generated method stub
 		if(raiz != null){

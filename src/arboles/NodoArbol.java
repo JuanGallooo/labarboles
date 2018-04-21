@@ -2,11 +2,7 @@ package arboles;
 
 import java.util.ArrayList;
 
-import InterfazArbolBinario.InterfazArbol;
-
-
-
-public class NodoArbol <T extends Comparable> implements InterfazArbol<T>, Comparable<NodoArbol<T>>{
+public class NodoArbol <T extends Comparable> implements Comparable<NodoArbol<T>>{
 	
 	private NodoArbol <T> izquierda;
 	private NodoArbol <T> derecha;
@@ -50,7 +46,7 @@ public class NodoArbol <T extends Comparable> implements InterfazArbol<T>, Compa
 
 
 
-	@Override
+	
 	public void agregarNodo(NodoArbol<T> nodo) {
 		// TODO Auto-generated method stub
 		int resultado = this.compareTo(nodo);
@@ -75,7 +71,7 @@ public class NodoArbol <T extends Comparable> implements InterfazArbol<T>, Compa
 
 
 
-	@Override
+	
 	public NodoArbol<T> eliminarNodo(NodoArbol<T> nodo) throws Exception {
 		// TODO Auto-generated method stub
 		if(esHoja()){
@@ -105,7 +101,7 @@ public class NodoArbol <T extends Comparable> implements InterfazArbol<T>, Compa
 
 
 
-	@Override
+	
 	public NodoArbol<T> buscarNodo(NodoArbol <T> nodo) {
 		// TODO Auto-generated method stub
 		int resultado =  this.compareTo(nodo);
@@ -133,7 +129,7 @@ public class NodoArbol <T extends Comparable> implements InterfazArbol<T>, Compa
 		
 	}
 
-	@Override
+	
 	public NodoArbol <T> minimo() {
 		// TODO Auto-generated method stub
 		if(izquierda == null){
@@ -143,7 +139,7 @@ public class NodoArbol <T extends Comparable> implements InterfazArbol<T>, Compa
 			return izquierda.minimo();
 		}
 	}
-	@Override
+	
 	public NodoArbol <T> maximo() {
 		// TODO Auto-generated method stub
 		if(derecha == null){
@@ -153,14 +149,14 @@ public class NodoArbol <T extends Comparable> implements InterfazArbol<T>, Compa
 			return derecha.maximo();
 		}
 	}
-	@Override
+	
 	public int compareTo(NodoArbol<T> c){
 		int resultado = this.elemento.compareTo(c.getElemento());
 		return resultado;
 	}
 
 	
-	@Override
+	
 	public boolean esHoja() {
 		// TODO Auto-generated method stub
 		boolean hoja = false;
@@ -168,6 +164,17 @@ public class NodoArbol <T extends Comparable> implements InterfazArbol<T>, Compa
 			hoja = true;
 		}
 		return hoja;
+	}
+	
+	public int darAltura(){
+	        if(esHoja()) {
+	            return 1;
+	        }
+	        int altura1 = getIzquierda().darAltura( );
+	        int altura2 = getDerecha().darAltura( );
+	        if(altura1 >= altura2) return altura1 + 1;
+	        else return altura2 + 1;
+	    
 	}
 
 	public void inOrder(ArrayList <T> participantes){
@@ -180,4 +187,5 @@ public class NodoArbol <T extends Comparable> implements InterfazArbol<T>, Compa
 			derecha.inOrder(participantes);
 		}
 	}
+	
 }	
