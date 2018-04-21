@@ -1,5 +1,7 @@
 package arboles;
 
+import java.util.ArrayList;
+
 public class NodoRojoNegro<T extends Comparable<? super T>>{
 	public static final int NEGRO= 1;
 	public static final int ROJO= 0;
@@ -8,8 +10,6 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
 	
 	public NodoRojoNegro<T> nill;
 	
-	private boolean raiz;
-
 	private NodoRojoNegro<T> padre;
 	private NodoRojoNegro<T> derecha;
 	private NodoRojoNegro<T> izquierda;
@@ -38,12 +38,6 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
 	// -----------------------------------------------------------------
     // Métodos
     // -----------------------------------------------------------------
-	public boolean isRaiz() {
-		return raiz;
-	}
-	public void setRaiz(boolean raiz) {
-		this.raiz = raiz;
-	}
 	public NodoRojoNegro<T> getDerecha(){
 		return derecha;
 	}
@@ -210,8 +204,8 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
     	aux.getIzquierda().setPadre(this);
     	aux.setPadre(getPadre());
     	if(x.getPadre().equals(nill)) {
-    		setRaiz(false);
-    		aux.setRaiz(true);
+//    		setRaiz(false);
+//    		aux.setRaiz(true);
     	}
     	else{
     		if(x.equals(x.getPadre().getIzquierda())) {
@@ -228,8 +222,8 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
     	x.getDerecha().setPadre(this);
     	aux.setPadre(this.getPadre());
     	if(x.getPadre()==nill) {
-    		this.setRaiz(false);
-    		aux.setRaiz(true);
+//    		this.setRaiz(false);i
+//    		aux.setRaiz(true);
     	}
     	else {
     		if(this.equals(x.getPadre().getDerecha())) {
@@ -252,7 +246,7 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
             	nodo.setPadre(this);
                 setDerecha(nodo);
             }
-            else getDerecha().insertar( nodo );
+            else derecha.insertar(nodo);
         }
         else{
             if(hijoIzquierdaHoja()){
@@ -376,15 +370,26 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
                 abuelo.getPadre( ).setIzquierda(abuelo.rotarIzquierda());
         }
     }
-	public String inOrder(NodoRojoNegro<T> raizA){
-		String retorno="";
-		if(raizA.getIzquierda()!= nill){
-			retorno+=raizA.getIzquierda().inOrder(raizA.getIzquierda());
+//	public String inOrder(NodoRojoNegro<T> raizA){
+//		String retorno="";
+//		if(raizA.getIzquierda()!= nill){
+//			retorno+=raizA.getIzquierda().inOrder(raizA.getIzquierda());
+//		}
+//		retorno+=raizA.getElemento().toString()+ raizA.getColor() +" ";
+//		if(raizA.getDerecha() != nill){
+//			retorno+=raizA.getDerecha().inOrder(raizA.getDerecha());
+//		}
+//		return retorno;
+//	}
+    
+	public void inOrder(ArrayList<NodoRojoNegro> gay){
+		if(izquierda != null){
+			izquierda.inOrder(gay);
 		}
-		retorno+=raizA.getElemento().toString()+ raizA.getColor() +" ";
-		if(raizA.getDerecha() != nill){
-			retorno+=raizA.getDerecha().inOrder(raizA.getDerecha());
+		gay.add((NodoRojoNegro) this);
+	     
+		if(derecha != null){
+			derecha.inOrder(gay);
 		}
-		return retorno;
 	}
 }

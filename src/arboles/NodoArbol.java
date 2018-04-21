@@ -70,7 +70,6 @@ public class NodoArbol <T extends Comparable> implements InterfazArbol<T>, Compa
 				derecha.agregarNodo(nodo);
 			}
 		}
-		
 	}
 
 
