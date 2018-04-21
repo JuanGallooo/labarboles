@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
-		
+
 //		Elemento raiz= new Elemento(1, 0);
 //		NodoRojoNegro<Elemento> nill= new NodoRojoNegro<Elemento>();
 //		
@@ -32,6 +32,6 @@ public class Main {
 		for(int j = 0; j < valores.length; j++){
 			System.out.println(numeros.get(j));
 		}
-	
-	}
+
+   }
 }

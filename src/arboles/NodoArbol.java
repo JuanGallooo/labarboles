@@ -66,7 +66,6 @@ public class NodoArbol <T extends Comparable> implements Comparable<NodoArbol<T>
 				derecha.agregarNodo(nodo);
 			}
 		}
-		
 	}
 
 
