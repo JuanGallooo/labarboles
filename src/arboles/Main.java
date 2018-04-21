@@ -1,7 +1,7 @@
 package arboles;
 
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		Elemento raiz= new Elemento(1, 0);
 		NodoRojoNegro<Elemento> nill= new NodoRojoNegro<Elemento>();
@@ -18,5 +18,6 @@ public class Main {
 		raizNodo.insertar(nodo1);
 		raizNodo.insertar(nodo2);
 		System.out.println(raizNodo.inOrder(raizNodo));
+	
 	}
 }

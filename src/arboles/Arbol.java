@@ -87,6 +87,18 @@ public  class Arbol<T extends Comparable>{
 			throw new Exception ("No se han ingresado datos");
 		}
 	}
+	public int darAltura(){
+		return raiz.darAltura();
+	}
+	public int darBalanceo() throws Exception{
+		if( raiz instanceof NodoArbolAVL){
+			return ((NodoArbolAVL) raiz).getEstado();
+		}
+		else{
+		throw new Exception("El algoritmo debe utilizarse sobre nodos AVL");	
+		}
+	}
+
 
 
 

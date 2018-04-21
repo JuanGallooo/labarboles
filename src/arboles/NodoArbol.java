@@ -8,7 +8,7 @@ public class NodoArbol <T extends Comparable> implements Comparable<NodoArbol<T>
 	private NodoArbol <T> derecha;
 	private T elemento;
 	
-	public NodoArbol( T elemento, NodoArbol<T> padre){
+	public NodoArbol( T elemento){
 		this.elemento = elemento;
 		
 	}
@@ -167,14 +167,17 @@ public class NodoArbol <T extends Comparable> implements Comparable<NodoArbol<T>
 	}
 	
 	public int darAltura(){
+		int altura1 = 0;
+		int altura2 = 0;
 	        if(esHoja()) {
-	            return 1;
+	            return 0;
 	        }
-	        int altura1 = getIzquierda().darAltura( );
-	        int altura2 = getDerecha().darAltura( );
+	        if(izquierda != null) altura1 = getIzquierda().darAltura( );
+	        else altura1 = 0;
+	        if(derecha != null) altura2 = getDerecha().darAltura( );
+	        else altura2 = 0;
 	        if(altura1 >= altura2) return altura1 + 1;
 	        else return altura2 + 1;
-	    
 	}
 
 	public void inOrder(ArrayList <T> participantes){
