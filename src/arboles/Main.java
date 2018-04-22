@@ -4,17 +4,19 @@ import java.util.ArrayList;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
-<<<<<<< HEAD
-		Elemento Creado0= new Elemento(6, 0);
-		Elemento Creado1= new Elemento(10, 1);
-		Elemento Creado2= new Elemento(11, 1);
-		Elemento Creado3= new Elemento(14, 1);
-		Elemento Creado4= new Elemento(15, 1);
-		Elemento Creado5= new Elemento(4, 1);
-		Elemento Creado6= new Elemento(9, 1);
-		Elemento Creado7= new Elemento(30, 1);
-		Elemento Creado8= new Elemento(31, 1);
-		Elemento Creado9= new Elemento(8, 1);
+		Elemento Creado0= new Elemento(20, 0);
+		Elemento Creado1= new Elemento(7, 1);
+		Elemento Creado2= new Elemento(5, 1);
+		Elemento Creado3= new Elemento(3, 1);
+		
+		Elemento Creado4= new Elemento(25, 1);
+		
+		Elemento Creado5= new Elemento(15, 1);
+		Elemento Creado6= new Elemento(10, 1);
+		Elemento Creado7= new Elemento(17, 1);
+		Elemento Creado8= new Elemento(25, 1);
+		Elemento Creado9= new Elemento(30, 1);
+
 		Elemento Creado10= new Elemento(7, 1);
 		Elemento Creado11= new Elemento(3, 1);
 		Elemento Creado12= new Elemento(5, 1);
@@ -45,18 +47,19 @@ public class Main {
 		arbol.agregarNodo(nodo1);
 		arbol.agregarNodo(nodo2);
 		arbol.agregarNodo(nodo3);
-		arbol.agregarNodo(nodo4);
+//		arbol.agregarNodo(nodo4);
 		arbol.agregarNodo(nodo5);
 		arbol.agregarNodo(nodo6);
 		arbol.agregarNodo(nodo7);
 		arbol.agregarNodo(nodo8);
 		arbol.agregarNodo(nodo9);
-		arbol.agregarNodo(nodo10);
-		arbol.agregarNodo(nodo11);
-		arbol.agregarNodo(nodo12);
-		arbol.agregarNodo(nodo13);
-		
+//		arbol.agregarNodo(nodo10);
+//		arbol.agregarNodo(nodo11);
+//		arbol.agregarNodo(nodo12);
+//		arbol.agregarNodo(nodo13);
+//		
 		ArrayList<NodoRojoNegro<Elemento>> lista = new ArrayList<NodoRojoNegro<Elemento>>();
+		System.out.println(arbol.getRaiz().getElemento().toString());
 		
 		arbol.inOrder(lista);
 		for (int i = 0; i < lista.size(); i++) {
@@ -69,8 +72,8 @@ public class Main {
 		
 //		System.out.println(nill.inOrder(gay));
 //		System.out.println(raizNodo.inOrder(raizNodo));
-	}
-=======
+//	}
+//=======
 
 //		Elemento raiz= new Elemento(1, 0);
 //		NodoRojoNegro<Elemento> nill= new NodoRojoNegro<Elemento>();
@@ -87,19 +90,18 @@ public class Main {
 //		raizNodo.insertar(nodo1);
 //		raizNodo.insertar(nodo2);
 //		System.out.println(raizNodo.inOrder(raizNodo));
-		
-		Arbol abb =  new Arbol();
-		String [] valores  = {"4", "2", "1", "3", "6", "5", "7"};
-		for(int i = 0; i < valores.length; i++){
-			NodoArbolAVL <String> nuevo =  new NodoArbolAVL(valores[i]);
-			abb.agregarNodo(nuevo);
-		}
-		ArrayList<String> numeros =  new ArrayList<String>();
-		abb.getRaiz().inOrder(numeros);
-		for(int j = 0; j < valores.length; j++){
-			System.out.println(numeros.get(j));
-		}
-
+//		
+//		Arbol abb =  new Arbol();
+//		String [] valores  = {"4", "2", "1", "3", "6", "5", "7"};
+//		for(int i = 0; i < valores.length; i++){
+//			NodoArbolAVL <String> nuevo =  new NodoArbolAVL(valores[i]);
+//			abb.agregarNodo(nuevo);
+//		}
+//		ArrayList<String> numeros =  new ArrayList<String>();
+//		abb.getRaiz().inOrder(numeros);
+//		for(int j = 0; j < valores.length; j++){
+//			System.out.println(numeros.get(j));
+//		}
    }
->>>>>>> 9c661ce66a868fca70db8d5e39d21ce00f990cc7
+//>>>>>>> 9c661ce66a868fca70db8d5e39d21ce00f990cc7
 }
