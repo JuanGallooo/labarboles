@@ -24,9 +24,8 @@ public class NodoArbolAVL <T extends Comparable> extends NodoArbol {
 			altIzquierda = this.getIzquierda().darAltura() + 1;
 		}
 		estado = altDerecha -altIzquierda;
-		
-	
 	}
+	
 	
 	
 	
