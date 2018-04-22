@@ -36,5 +36,4 @@ public class Elemento implements Comparable<Elemento>{
 	public String toString() {
 		return "Elemento [numero=" + numero + ", numeroCreado=" + numeroCreado + "]";
 	}
-	
 }

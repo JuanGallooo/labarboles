@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
+		
 		Elemento Creado0= new Elemento(20, 0);
 		Elemento Creado1= new Elemento(7, 1);
 		Elemento Creado2= new Elemento(5, 1);
@@ -11,9 +12,10 @@ public class Main {
 		
 		Elemento Creado4= new Elemento(25, 1);
 		
-		Elemento Creado5= new Elemento(15, 1);
+		Elemento Creado5= new Elemento(30, 1);
 		Elemento Creado6= new Elemento(10, 1);
-		Elemento Creado7= new Elemento(17, 1);
+		Elemento Creado7= new Elemento(8, 1);
+		
 		Elemento Creado8= new Elemento(25, 1);
 		Elemento Creado9= new Elemento(30, 1);
 
@@ -25,8 +27,6 @@ public class Main {
 		NodoRojoNegro<Elemento> nill= new NodoRojoNegro<Elemento>();
 		ArbolRojoNegro<Elemento> arbol= new ArbolRojoNegro<Elemento>(nill);
 		NodoRojoNegro<Elemento> nodo0= new NodoRojoNegro<Elemento>(Creado0, nill);
-		nodo0.setColor(NodoRojoNegro.NEGRO);
-		nodo0.setPadre(nill);
 		
 		arbol.agregarNodo(nodo0);
 
@@ -47,17 +47,20 @@ public class Main {
 		arbol.agregarNodo(nodo1);
 		arbol.agregarNodo(nodo2);
 		arbol.agregarNodo(nodo3);
-//		arbol.agregarNodo(nodo4);
+		arbol.agregarNodo(nodo4);
 		arbol.agregarNodo(nodo5);
 		arbol.agregarNodo(nodo6);
 		arbol.agregarNodo(nodo7);
-		arbol.agregarNodo(nodo8);
-		arbol.agregarNodo(nodo9);
+		arbol.eliminarNodo(Creado4);
+		arbol.eliminarNodo(Creado5);
+		arbol.eliminarNodo(Creado6);
+//		arbol.agregarNodo(nodo8);
+//		arbol.agregarNodo(nodo9);
 //		arbol.agregarNodo(nodo10);
 //		arbol.agregarNodo(nodo11);
 //		arbol.agregarNodo(nodo12);
 //		arbol.agregarNodo(nodo13);
-//		
+		
 		ArrayList<NodoRojoNegro<Elemento>> lista = new ArrayList<NodoRojoNegro<Elemento>>();
 		System.out.println(arbol.getRaiz().getElemento().toString());
 		

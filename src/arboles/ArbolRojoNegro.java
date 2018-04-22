@@ -21,11 +21,16 @@ public class ArbolRojoNegro<T extends Comparable<? super T>> {
 	public void agregarNodo(NodoRojoNegro<T> nodo) {
 		if(raiz == null){
 			raiz = nodo;
+			raiz.setColor(NodoRojoNegro.NEGRO);
+			raiz.setPadre(nill);
 		}
 		else{
 			NodoRojoNegro<T> agregar=raiz.insertar(nodo);
 			revisarRaiz(agregar);
 		}
+	}
+	public void eliminarNodo(T nodo) {
+		raiz.buscarEliminar(nodo);
 	}
 	public ArrayList<NodoRojoNegro<Elemento>> inOrder(ArrayList<NodoRojoNegro<Elemento>> lista){
 		raiz.inOrder(lista);
