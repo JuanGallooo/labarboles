@@ -155,15 +155,12 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
         if( comparador == 0 )return this;
         else if( comparador > 0 ){
         	if(!getIzquierda().equals(nill)) {
-//            if(!getIzquierda().esHoja())return izquierda.buscarElemento( elem );
         		return izquierda.buscarElemento( elem );
-//            else return null;
         	}
         	else return null;
         }
         else{
         	if(!getDerecha().equals(nill)) {
-//            if(!getDerecha().esHoja())return derecha.buscarElemento( elem );
               return derecha.buscarElemento( elem );
         	}
         	else return null;
@@ -316,128 +313,6 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
     	NodoRojoNegro<T> eliminar= buscarElemento(nodo);
     	eliminarNodo(eliminar);
     }
-//    public NodoRojoNegro<T> eliminarNodo(NodoRojoNegro<T> nodo){
-//    	NodoRojoNegro<T> y=new NodoRojoNegro<T>();
-//    	NodoRojoNegro<T> x= new NodoRojoNegro<T>();
-//    	if(nodo.getIzquierda().equals(nill)||nodo.getDerecha().equals(nill)) {
-//    		 y= nodo;
-//    	}
-//    	else {
-//    		 y= sucesor(nodo);
-//    	}
-//    	if(!nodo.getIzquierda().equals(nill)) {
-//    		 x= y.getIzquierda();
-//    	}
-//    	else if (!nodo.getDerecha().equals(nill)) {
-//   		     x= y.getDerecha();
-//     	}
-//    	else {
-//    		if(nodo.equals(nodo.getPadre().getIzquierda())) {
-//    			nodo.getPadre().setIzquierda(nill);
-//    		}
-//    		else {
-//    			nodo.getPadre().setDerecha(nill);
-//    		}
-//    	}
-//    	x.setPadre(y.getPadre());
-//    	if(y.getPadre().equals(nill)) {
-//    		
-//    	}
-//    	else {
-//    		if( y.equals(y.getPadre().getIzquierda())) {
-//    			y.getPadre().setIzquierda(x);
-//    		}
-//    		else {
-//    			y.getPadre().setDerecha(x);
-//    		}
-//    	}
-//    	if(!y.equals(nodo)) {
-//    		nodo.setElemento(y.getElemento());
-//    	}
-//    	if(y.getColor()== NEGRO) {
-//    		arreglarEliminar(x);
-//    	}
-//    	return y;
-//    }
-//    public void arreglarEliminar(NodoRojoNegro<T> x) {
-//    	while (!x.getPadre().equals(nill)) {
-//    		x.setColor(NEGRO);
-//    		if( x.equals(x.getPadre().getIzquierda())) {
-//    			NodoRojoNegro<T> w= x.getPadre().getDerecha();
-//    			if(w.getColor()== ROJO) {
-//    				w.setColor(NEGRO);
-//    				x.getPadre().setColor(NEGRO);
-//    				izquierdaRotar(x.getPadre());
-//    				w= x.getPadre().getDerecha();
-//    			}
-//    			if(w.getIzquierda().getColor()== NEGRO) {
-//    				w.getDerecha().setColor(NEGRO);
-//    				w.setColor(ROJO);
-//    				x= x.getPadre();
-//    			}
-//    			else {
-//    				if(w.getDerecha().getColor()== NEGRO) {
-//    					w.getDerecha().setColor(NEGRO);
-//    					w.setColor(ROJO);
-//    					derechaRotar(w);
-//    					w= x.getPadre().getDerecha();
-//    				}
-//    				w.setColor(x.getPadre().getColor());
-//    				x.getPadre().setColor(NEGRO);
-//    				w.getDerecha().setColor(NEGRO);
-//    				izquierdaRotar(x.getPadre());
-//    				x.setPadre(nill);
-//    			}
-//    		}
-//    		else{
-//    			NodoRojoNegro<T> w= x.getPadre().getIzquierda();
-//    			if(w.getColor()== ROJO) {
-//    				w.setColor(NEGRO);
-//    				x.getPadre().setColor(NEGRO);
-//    				derechaRotar(x.getPadre());
-//    				w= x.getPadre().getIzquierda();
-//    			}
-//    			if(w.getDerecha().getColor()== NEGRO && !w.getDerecha().equals(nill)) {
-//    				if(!(w.getIzquierda().equals(nill) && w.getDerecha().equals(nill))){
-//    				w.getIzquierda().setColor(NEGRO);
-//    				w.setColor(ROJO);
-//    				x= x.getPadre();
-//    				}
-//    				else x.setPadre(nill);
-//    			}
-//    			else {
-//    				if(w.getIzquierda().getColor()== NEGRO && !w.getDerecha().equals(nill)) {
-//    					w.getIzquierda().setColor(NEGRO);
-//    					w.setColor(ROJO);
-//    					izquierdaRotar(w);
-//    					w= x.getPadre().getIzquierda();
-//    				}
-//    				w.setColor(x.getPadre().getColor());
-//    				x.getPadre().setColor(NEGRO);
-//    				w.getIzquierda().setColor(NEGRO);
-//    				derechaRotar(x.getPadre());
-//    				x.setPadre(nill);
-//    			}
-//    		}
-//    	}
-//    	x.setColor(NEGRO);
-//    }
-    
-    
-    // -----------------------------------------------------------------
-    // inOrder
-    // -----------------------------------------------------------------
-	public void inOrder(ArrayList<NodoRojoNegro<Elemento>> lista){
-		if(izquierda != null){
-			izquierda.inOrder(lista);
-		}
-		lista.add((NodoRojoNegro<Elemento>) this);
-		if(derecha != null){
-			derecha.inOrder(lista);
-		}
-	}
-	
-	
     public boolean eliminarNodo(NodoRojoNegro<T> z){
     	NodoRojoNegro<T> x;
     	NodoRojoNegro<T> y = z;
@@ -449,8 +324,7 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
             x = z.getIzquierda();
             remplazar(z, z.getIzquierda()); 
         }else{
-//        	y =sucesor(z);
-            y = minimo(z.getDerecha());
+        	y =sucesor(z);
             colorY = y.getColor();
             x = y.getDerecha();
             if(y.getPadre().equals(z))
@@ -538,8 +412,18 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
         	nodo1.getPadre().setDerecha(nodo2);
         }
         nodo2.setPadre(nodo1.getPadre());
-  }
-	
-	
-	
+   }
+    
+    // -----------------------------------------------------------------
+    // inOrder
+    // -----------------------------------------------------------------
+	public void inOrder(ArrayList<NodoRojoNegro<Elemento>> lista){
+		if(izquierda != null){
+			izquierda.inOrder(lista);
+		}
+		lista.add((NodoRojoNegro<Elemento>) this);
+		if(derecha != null){
+			derecha.inOrder(lista);
+		}
+	}
 }
