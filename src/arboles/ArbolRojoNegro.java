@@ -3,9 +3,12 @@ package arboles;
 import java.util.ArrayList;
 
 public class ArbolRojoNegro<T extends Comparable<? super T>> {
-	private NodoRojoNegro<T> raiz;
 
-	public ArbolRojoNegro(){
+	private NodoRojoNegro<T> raiz;
+	public NodoRojoNegro<T> nill;
+
+	public ArbolRojoNegro(NodoRojoNegro<T> nill){
+		this.nill= nill;
 	}
 	public NodoRojoNegro<T> getRaiz() {
 		return raiz;
@@ -20,10 +23,19 @@ public class ArbolRojoNegro<T extends Comparable<? super T>> {
 			raiz = nodo;
 		}
 		else{
-			raiz.insertar(nodo);
+			NodoRojoNegro<T> agregar=raiz.insertar(nodo);
+			revisarRaiz(agregar);
 		}
 	}
-	public void inOrder(ArrayList<NodoRojoNegro> lista){
+	public ArrayList<NodoRojoNegro<Elemento>> inOrder(ArrayList<NodoRojoNegro<Elemento>> lista){
 		raiz.inOrder(lista);
+		return lista;
+	}
+	public void revisarRaiz(NodoRojoNegro<T> nodo) {
+		NodoRojoNegro<T> aux= nodo;
+		while(!aux.getPadre().equals(nill)) {
+			aux= aux.getPadre();
+		}
+		setRaiz(aux);
 	}
 }
