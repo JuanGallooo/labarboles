@@ -18,7 +18,7 @@ public class ArbolRojoNegro<T extends Comparable<? super T>> {
 		this.raiz = raiz;
 	}
 	
-	public void agregarNodo(NodoRojoNegro<T> nodo) {
+	public void agregarNodo(NodoRojoNegro<T> nodo) throws Exception {
 		if(raiz == null){
 			raiz = nodo;
 			raiz.setColor(NodoRojoNegro.NEGRO);
@@ -29,7 +29,7 @@ public class ArbolRojoNegro<T extends Comparable<? super T>> {
 			revisarRaiz(agregar);
 		}
 	}
-	public void eliminarNodo(T nodo) {
+	public void eliminarNodo(T nodo) throws Exception {
 		if(nodo.equals(raiz.getElemento())) {
 			T aux;
 			if(!raiz.getDerecha().equals(nill)) {

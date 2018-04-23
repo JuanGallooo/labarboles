@@ -241,9 +241,9 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
 	// -----------------------------------------------------------------
     // Insertar
     // -----------------------------------------------------------------
-    public NodoRojoNegro<T> insertar( NodoRojoNegro<T> nodo ){
+    public NodoRojoNegro<T> insertar( NodoRojoNegro<T> nodo ) throws Exception{
         if(buscarElemento(nodo.getElemento())!=null){
-        	//Elemento ya existe
+        	throw new Exception("El elemento que desea agregar ya existe");
         }
         else if(elemento.compareTo(nodo.getElemento())>0){
             if(hijoDerechoHoja()){
@@ -310,8 +310,9 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
     // Eliminar
     // -----------------------------------------------------------------
     
-    public void buscarEliminar(T nodo) {
+    public void buscarEliminar(T nodo) throws Exception {
     	NodoRojoNegro<T> eliminar= buscarElemento(nodo);
+    	if( eliminar== null) throw new Exception("El elemento que quiere eliminar no existe");
     	eliminarNodo(eliminar);
     }
     public NodoRojoNegro<T> eliminarNodo(NodoRojoNegro<T> z){
