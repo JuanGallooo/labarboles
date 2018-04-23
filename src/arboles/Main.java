@@ -35,14 +35,16 @@ public class Main {
 		arbol.agregarNodo(nodo5);
 		arbol.agregarNodo(nodo6);
 		arbol.agregarNodo(nodo7);
-		
 		arbol.eliminarNodo(Creado4);
 		arbol.eliminarNodo(Creado5);
 		arbol.eliminarNodo(Creado6);
+		arbol.eliminarNodo(Creado1);
+		arbol.eliminarNodo(Creado0);
+		arbol.eliminarNodo(Creado3);
+		arbol.eliminarNodo(Creado2);
+		arbol.eliminarNodo(Creado7);
 
-		
 		ArrayList<NodoRojoNegro<Elemento>> lista = new ArrayList<NodoRojoNegro<Elemento>>();
-		
 		arbol.inOrder(lista);
 		
 		for (int i = 0; i < lista.size(); i++) {

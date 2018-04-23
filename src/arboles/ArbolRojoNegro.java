@@ -30,10 +30,33 @@ public class ArbolRojoNegro<T extends Comparable<? super T>> {
 		}
 	}
 	public void eliminarNodo(T nodo) {
-		raiz.buscarEliminar(nodo);
+		if(nodo.equals(raiz.getElemento())) {
+			T aux;
+			if(!raiz.getDerecha().equals(nill)) {
+				aux= raiz.getDerecha().getElemento();
+				raiz.buscarEliminar(nodo);
+				NodoRojoNegro<T> aux2= raiz.buscarElemento(aux);
+				revisarRaiz(aux2);
+			}
+			else if(!raiz.getIzquierda().equals(nill)) {
+				aux= raiz.getIzquierda().getElemento();
+				raiz.buscarEliminar(nodo);
+				NodoRojoNegro<T> aux2= raiz.buscarElemento(aux);
+				revisarRaiz(aux2);
+			}
+			else {
+				raiz= null;
+				aux=null;
+			}
+		}
+		else
+		{
+			raiz.buscarEliminar(nodo);
+			revisarRaiz(raiz);
+		}
 	}
 	public ArrayList<NodoRojoNegro<Elemento>> inOrder(ArrayList<NodoRojoNegro<Elemento>> lista){
-		raiz.inOrder(lista);
+		if( raiz!=null)raiz.inOrder(lista);
 		return lista;
 	}
 	public void revisarRaiz(NodoRojoNegro<T> nodo) {

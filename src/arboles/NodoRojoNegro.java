@@ -230,12 +230,13 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
     	aux.setDerecha(x);
 		x.setPadre(aux);
     }
-	public void raizNegra(NodoRojoNegro<T> nodo) {
+	public NodoRojoNegro<T> raizNegra(NodoRojoNegro<T> nodo) {
 		NodoRojoNegro<T> aux= nodo;
 		while(!aux.getPadre().equals(nill)) {
 			aux= aux.getPadre();
 		}
 		aux.setColor(NodoRojoNegro.NEGRO);
+		return aux;
 	}
 	// -----------------------------------------------------------------
     // Insertar
@@ -313,7 +314,7 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
     	NodoRojoNegro<T> eliminar= buscarElemento(nodo);
     	eliminarNodo(eliminar);
     }
-    public boolean eliminarNodo(NodoRojoNegro<T> z){
+    public NodoRojoNegro<T> eliminarNodo(NodoRojoNegro<T> z){
     	NodoRojoNegro<T> x;
     	NodoRojoNegro<T> y = z;
     	int colorY = y.color;
@@ -342,7 +343,7 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
         if(colorY==NEGRO) {
         	arreglarEliminar(x);
         }  
-        return true;
+        return raizNegra(x);
     }
     
     public void arreglarEliminar(NodoRojoNegro<T> x){
