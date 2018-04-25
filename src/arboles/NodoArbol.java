@@ -2,6 +2,7 @@ package arboles;
 
 import java.util.ArrayList;
 
+
 public class NodoArbol <T extends Comparable> implements Comparable<NodoArbol<T>>{
 	
 	private NodoArbol <T> izquierda;
@@ -89,18 +90,18 @@ public class NodoArbol <T extends Comparable> implements Comparable<NodoArbol<T>
 	    	sucesor.setDerecha(derecha);
 	    	return sucesor;
 	    }
-	    else if(this.compareTo(nodo) > 0){
+	    else if(this.compareTo(nodo) == 1){
 	    	this.setIzquierda(izquierda.eliminarNodo(nodo));
+
 	    }
 	    else{
 	    	this.setDerecha(derecha.eliminarNodo(nodo));
+	    	
+	    	
 	    }
 	    return this;
 	}
 
-
-
-	
 	public NodoArbol<T> buscarNodo(NodoArbol <T> nodo) {
 		// TODO Auto-generated method stub
 		int resultado =  this.compareTo(nodo);
@@ -108,7 +109,7 @@ public class NodoArbol <T extends Comparable> implements Comparable<NodoArbol<T>
 			return this;
 		}
 		else{
-			if(resultado > 0){
+			if(resultado == 1){
 				if(izquierda != null){
 					return izquierda.buscarNodo(nodo);
 				}
@@ -116,7 +117,7 @@ public class NodoArbol <T extends Comparable> implements Comparable<NodoArbol<T>
 					return null;
 				}
 			}
-			else{
+			else if(resultado == -1){
 				if(derecha != null){
 					return derecha.buscarNodo(nodo);
 				}
@@ -124,6 +125,7 @@ public class NodoArbol <T extends Comparable> implements Comparable<NodoArbol<T>
 					return null;
 				}
 			}
+			return null;
 		}
 		
 	}
@@ -150,7 +152,20 @@ public class NodoArbol <T extends Comparable> implements Comparable<NodoArbol<T>
 	}
 	
 	public int compareTo(NodoArbol<T> c){
-		int resultado = this.elemento.compareTo(c.getElemento());
+		
+		int resultado = 0;
+		try{
+			resultado = this.getElemento().compareTo(c.getElemento());
+			if(resultado > 0){
+				resultado = 1;
+			}
+			else if(resultado < 0){
+				resultado = -1;
+			}
+		}
+		catch(NullPointerException e){
+			resultado = -2;
+		}
 		return resultado;
 	}
 
@@ -158,11 +173,10 @@ public class NodoArbol <T extends Comparable> implements Comparable<NodoArbol<T>
 	
 	public boolean esHoja() {
 		// TODO Auto-generated method stub
-		boolean hoja = false;
 		if(izquierda == null && derecha == null){
-			hoja = true;
+			return true;
 		}
-		return hoja;
+		return false;
 	}
 	
 	public int darAltura(){
@@ -189,5 +203,20 @@ public class NodoArbol <T extends Comparable> implements Comparable<NodoArbol<T>
 			derecha.inOrder(participantes);
 		}
 	}
+	
+	
+	public String orden(String mensaje){
+		mensaje += this.elemento + "\n";
+		String mensaje2 = "";
+		if(this.getIzquierda() != null){
+			mensaje += "Izquierda de " + this.elemento +": " + this.getIzquierda().orden(mensaje2) + "\n";
+		}
+		if(this.getDerecha() != null){
+			mensaje += "Derecha de " + this.elemento + ": " + this.getDerecha().orden(mensaje2) + "\n";
+		}
+		return mensaje;
+	}
+
+
 	
 }	

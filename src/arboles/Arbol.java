@@ -18,7 +18,7 @@ public  class Arbol<T extends Comparable>{
 	}
 
 	
-	public void agregarNodo(NodoArbol<T> nodo) {
+	public void agregarNodo(NodoArbol<T> nodo) throws Exception {
 		// TODO Auto-generated method stub
 		if(raiz == null){
 			raiz = nodo;
@@ -26,7 +26,6 @@ public  class Arbol<T extends Comparable>{
 		else{
 			raiz.agregarNodo(nodo);
 		}
-	
 	}
 
 	
@@ -91,20 +90,9 @@ public  class Arbol<T extends Comparable>{
 	public int darAltura(){
 		return raiz.darAltura();
 	}
-	public int darBalanceo() throws Exception{
-		if( raiz instanceof NodoArbolAVL){
-			return ((NodoArbolAVL) raiz).getEstado();
-		}
-		else{
-		throw new Exception("El algoritmo debe utilizarse sobre nodos AVL");	
-		}
-	}
 	public void inOrder(ArrayList<T> participantes){
 		if(raiz!=null) raiz.inOrder(participantes);
 	}
-	
-
-
 
 
 	

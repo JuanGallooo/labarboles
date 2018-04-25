@@ -5,32 +5,31 @@ import java.util.ArrayList;
 public class Main {
 	public static void main(String[] args) throws Exception {
 
-//		Elemento raiz= new Elemento(1, 0);
-//		NodoRojoNegro<Elemento> nill= new NodoRojoNegro<Elemento>();
-//		
-//		NodoRojoNegro<Elemento> raizNodo= new NodoRojoNegro<Elemento>(raiz, nill);
-//		raizNodo.setColor(NodoRojoNegro.NEGRO);
-//		raizNodo.setPadre(nill);
-//		
-//		Elemento Creado1= new Elemento(2, 1);
-//		NodoRojoNegro<Elemento> nodo1= new NodoRojoNegro<Elemento>(Creado1, nill);
-//		Elemento Creado2= new Elemento(3, 1);
-//		NodoRojoNegro<Elemento> nodo2= new NodoRojoNegro<Elemento>(Creado2, nill);
-//		
-//		raizNodo.insertar(nodo1);
-//		raizNodo.insertar(nodo2);
-//		System.out.println(raizNodo.inOrder(raizNodo));
-		
-		Arbol abb =  new Arbol();
-		String [] valores  = {"4", "2", "1", "3", "6", "5", "7"};
+		ArbolAVL<String> abb =  new ArbolAVL<String>();
+		String [] valores  = {"20","15","19","18","17","16","21","22","40"};
 		for(int i = 0; i < valores.length; i++){
-			NodoArbolAVL <String> nuevo =  new NodoArbolAVL(valores[i]);
-			abb.agregarNodo(nuevo);
+//			NodoArbol<String> nuevo =  new NodoArbol<String>(valores[i]);
+//			abb.agregarNodo(nuevo);
+			abb.insertar(valores[i]);
 		}
-		ArrayList<String> numeros =  new ArrayList<String>();
-		abb.getRaiz().inOrder(numeros);
-		for(int j = 0; j < valores.length; j++){
-			System.out.println(numeros.get(j));
+	    ArrayList<String> participantes = new ArrayList<String>();
+	    abb.inOrder(participantes);
+	    for (int j = 0; j <participantes.size(); j++) {
+			System.out.println(participantes.get(j));
+		}
+		
+		
+	    NodoArbol <String> eliminar =  new NodoArbol<String>("20");
+	    participantes.removeAll(participantes);
+		abb.eliminarAVL("20", abb.getRaiz());
+		System.out.println(abb.getRaiz().getEstado());
+		System.out.println(abb.getRaiz().getIzquierda().getEstado());
+		System.out.println(abb.getRaiz().getDerecha().getEstado());
+		System.out.println(abb.getRaiz().getDerecha().getIzquierda().getEstado());
+		abb.inOrder(participantes);
+		
+		 for (int k = 0; k <participantes.size(); k++) {
+				System.out.println(participantes.get(k));
 		}
 
    }
