@@ -33,17 +33,14 @@ public class PanelColegios extends JPanel{
 			cabeza[i]= new JLabel(cabezaInfo[i]);
 //			cabeza[i].setHorizontalAlignment(JLabel.CENTER);
 			cabeza[i].setBorder(borde);
+//			cabeza[i].set
 			auxiliar.add(cabeza[i]);
 		}
 	    JPanel aux=new JPanel();
 	    aux.setLayout(new GridLayout(infoDada.length, infoDada[0].length));
-	    System.out.println(infoDada.length);
-	    System.out.println(infoDada[0].length);
 		
 		info= new JLabel[infoDada.length][infoDada[0].length];
 		
-		 System.out.println(info.length);
-		    System.out.println(info[0].length);
 		for (int i = 0; i < info.length; i++) {
 			for (int j = 0; j < info[0].length; j++){
 				info[i][j]=new JLabel(infoDada[i][j]);
@@ -54,6 +51,5 @@ public class PanelColegios extends JPanel{
 		}
 		add(auxiliar, BorderLayout.CENTER);
 		add(aux, BorderLayout.SOUTH);
-//		repaint();
 	}
 }

@@ -32,12 +32,19 @@ public class ControladorColegios {
 			while(mensaje!=null && !mensaje.isEmpty()) {
 				String[] infoColegio= mensaje.split(",");
 				String calendario=infoColegio[0];
+				System.out.println(calendario);
 				String sector=infoColegio[1];
+				System.out.println(sector);
 				String nombre=infoColegio[2]; 
+				System.out.println(nombre);
 				String telefono=infoColegio[3];
+				System.out.println(telefono);
 				String rector=infoColegio[4]; 
+				System.out.println(rector);
 				String correo=infoColegio[5];
+				System.out.println(correo);
 				String direccion=infoColegio[6];
+				System.out.println(direccion);
 				Colegio agregar= new Colegio(calendario, sector, nombre, telefono, rector, correo, direccion);
 				agregar.setBusquedaActual(1);
 				NodoRojoNegro<Colegio> nodoAgregar= new NodoRojoNegro<Colegio>(agregar,nill);
@@ -48,7 +55,6 @@ public class ControladorColegios {
 //					System.out.println(contador);
 //					contador++;
 				}
-				if(agregar!=null) {
 				infoColegios[contador][0]= agregar.getCalendario();
 				infoColegios[contador][1]= agregar.getSector();
 				infoColegios[contador][2]= agregar.getNombre();
@@ -56,7 +62,6 @@ public class ControladorColegios {
 				infoColegios[contador][4]= agregar.getRector();
 				infoColegios[contador][5]= agregar.getCorreo();
 				infoColegios[contador][6]= agregar.getDireccion();
-				}
 				contador++;
 				mensaje= br.readLine();
 			}

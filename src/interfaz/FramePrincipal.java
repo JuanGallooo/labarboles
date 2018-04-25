@@ -27,7 +27,7 @@ public class FramePrincipal extends JFrame
 		mundo= new ControladorColegios();
 		try {
 			mundo.cargarArchivos();
-			mundo.generarInfoColegiosArn();
+//			mundo.generarInfoColegiosArn();
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this, e.getMessage());
 			e.printStackTrace();
