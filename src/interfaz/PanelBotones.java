@@ -1,7 +1,7 @@
 package interfaz;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,28 +27,28 @@ public class PanelBotones extends JPanel implements ActionListener{
 	public PanelBotones(FramePrincipal p) {
 		principal= p;
 		
-		setPreferredSize(new Dimension(300,400));
+//		setPreferredSize(new Dimension(300,400));
 		TitledBorder borde= new TitledBorder("Opciones");
 	    setBorder(borde);
-	    setLayout(new BorderLayout());
+	    setLayout(new GridLayout(1, 3));
 	    
 	    btnNombre= new JButton("Buscar Nombre(AVL)");
 	    btnNombre.setActionCommand(BUSCAR_NOMBRE);
 	    btnNombre.addActionListener(this);
-	    btnNombre.setPreferredSize(new Dimension(100, 100));
+//	    btnNombre.setPreferredSize(new Dimension(100, 100));
 	    btnTelefono= new JButton("Buscar telefono(ARN)");
 	    btnTelefono.setActionCommand(BUSCAR_TELEFONO);
 	    btnTelefono.addActionListener(this);
-	    btnTelefono.setPreferredSize(new Dimension(100, 100));
+//	    btnTelefono.setPreferredSize(new Dimension(100, 100));
 	    btnCorreo= new JButton("Buscar Correo Electronico(ABB)");
 	    btnCorreo.setActionCommand(BUSCAR_CORREO);
 	    btnCorreo.addActionListener(this);
-	    btnCorreo.setPreferredSize(new Dimension(100, 100));
+//	    btnCorreo.setPreferredSize(new Dimension(100, 100));
 	    
 	    
-	    add(btnNombre, BorderLayout.EAST);
-	    add(btnTelefono, BorderLayout.CENTER);
-	    add(btnCorreo, BorderLayout.WEST);
+	    add(btnNombre);
+	    add(btnTelefono);
+	    add(btnCorreo);
 	}
 
 	@Override

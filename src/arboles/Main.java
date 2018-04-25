@@ -44,13 +44,13 @@ public class Main {
 		arbol.eliminarNodo(Creado2);
 		arbol.eliminarNodo(Creado7);
 
-		ArrayList<NodoRojoNegro<Elemento>> lista = new ArrayList<NodoRojoNegro<Elemento>>();
+		ArrayList<Elemento> lista = new ArrayList<Elemento>();
 		arbol.inOrder(lista);
 		
 		for (int i = 0; i < lista.size(); i++) {
 			if(lista.get(i) != null) {
-				if(lista.get(i).getElemento() != null) {
-					System.out.println(lista.get(i).getElemento().toString()+"  "+lista.get(i).getColor());
+				if(lista.get(i)!= null) {
+					System.out.println(lista.get(i).toString());
 				}
 			}
 		}

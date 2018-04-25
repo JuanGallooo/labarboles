@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
 import mundo.ControladorColegios;
@@ -24,7 +25,13 @@ public class FramePrincipal extends JFrame
 	public FramePrincipal() {
 		
 		mundo= new ControladorColegios();
-		mundo.cargarArchivos();
+		try {
+			mundo.cargarArchivos();
+			mundo.generarInfoColegiosArn();
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this, e.getMessage());
+			e.printStackTrace();
+		}
 		
 		setPreferredSize(new Dimension(900,600));
 		setTitle("ColegiosBogota");
@@ -35,14 +42,15 @@ public class FramePrincipal extends JFrame
 		ImageIcon icono5 = new ImageIcon("./imgs/bogota.jpg");
 		banner.setIcon(icono5);
 		
-		miPanelColegios= new PanelColegios(null);
+		miPanelColegios= new PanelColegios(mundo.getInfoColegios());
 		miPanelBotones= new PanelBotones(this);
 		
 		JScrollPane deslizar= new JScrollPane(miPanelColegios);
 		
-		add(banner, BorderLayout.SOUTH);
+		add(banner, BorderLayout.NORTH);
 		add(deslizar, BorderLayout.CENTER);
-		add(miPanelBotones, BorderLayout.NORTH);
+		add(miPanelBotones, BorderLayout.SOUTH);
+		pack();
 	}
 	public static void main(String[] args) {
 		FramePrincipal ventana= new FramePrincipal();

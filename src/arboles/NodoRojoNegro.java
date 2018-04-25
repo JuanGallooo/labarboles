@@ -152,7 +152,11 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
     }
 	public NodoRojoNegro<T> buscarElemento( T elem ) 	    {
 		int comparador = elem.compareTo(this.elemento);
-        if( comparador == 0 )return this;
+        if( comparador == 0 ) {
+//        	System.out.println(elem.toString());
+//        	System.out.println(elemento.toString());
+        	return this;
+        }
         else if( comparador > 0 ){
         	if(!getIzquierda().equals(nill)) {
         		return izquierda.buscarElemento( elem );
@@ -419,12 +423,11 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
     // -----------------------------------------------------------------
     // inOrder
     // -----------------------------------------------------------------
-	@SuppressWarnings("unchecked")
-	public void inOrder(ArrayList<NodoRojoNegro<Elemento>> lista){
+	public void inOrder(ArrayList<T> lista){
 		if(izquierda != null){
 			izquierda.inOrder(lista);
 		}
-		lista.add((NodoRojoNegro<Elemento>) this);
+		lista.add(this.getElemento());
 		if(derecha != null){
 			derecha.inOrder(lista);
 		}

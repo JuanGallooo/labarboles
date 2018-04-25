@@ -9,19 +9,19 @@ public class Colegio implements Comparable<Colegio>{
 	private String calendario;
 	private String sector;
 	private String nombre;
-	private int telefono;
+	private String telefono;
 	private String rector;
 	private String correo;
 	private String direccion;
 	
 	private int busquedaActual;
 	
-	public Colegio(String calendario, String sector, String nombre, int telefono, String rector, String correo,
+	public Colegio(String calendario, String sector, String nombre, String telefono, String rector, String correo,
 			String direccion) {
 		this.calendario = calendario;
 		this.sector = sector;
 		this.nombre = nombre;
-		this.telefono = telefono;
+		this.telefono= telefono;
 		this.rector = rector;
 		this.correo = correo;
 		this.direccion = direccion;
@@ -45,10 +45,10 @@ public class Colegio implements Comparable<Colegio>{
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 	public String getRector() {
@@ -82,13 +82,20 @@ public class Colegio implements Comparable<Colegio>{
 			
 		}
 		else if( busquedaActual==BUSQUEDA_TELEFONO) {
-			if(o.getTelefono()<getTelefono())retorno=-1;
-			else if (o.getTelefono()>getTelefono())retorno=1;
+			if(o.getTelefono().compareTo(getTelefono())<0)retorno=-1;
+			else if (o.getTelefono().compareTo(getTelefono())>0)retorno=1;
 		}
 		else {
 			
 		}
 		return retorno;
 	}
+	@Override
+	public String toString() {
+		return "Colegio [calendario=" + calendario + ", sector=" + sector + ", nombre=" + nombre + ", telefono="
+				+ telefono + ", rector=" + rector + ", correo=" + correo + ", direccion=" + direccion
+				+ ", busquedaActual=" + busquedaActual + "]";
+	}
+	
 	
 }
