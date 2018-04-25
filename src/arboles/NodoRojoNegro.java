@@ -419,6 +419,7 @@ public class NodoRojoNegro<T extends Comparable<? super T>>{
     // -----------------------------------------------------------------
     // inOrder
     // -----------------------------------------------------------------
+	@SuppressWarnings("unchecked")
 	public void inOrder(ArrayList<NodoRojoNegro<Elemento>> lista){
 		if(izquierda != null){
 			izquierda.inOrder(lista);
