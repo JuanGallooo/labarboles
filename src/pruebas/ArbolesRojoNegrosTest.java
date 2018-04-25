@@ -16,9 +16,15 @@ public class ArbolesRojoNegrosTest {
 		nill =  new NodoRojoNegro<Colegio>();
 		arn = new ArbolRojoNegro<Colegio>(nill);
 	}
+	
+	private Colegio[] colegiosBase(){
+		Colegio uno
+	}
 
 	@Test
 	public void agregarNodoTest() {
+		//Agregado Simple
+		
 		
 	}
 

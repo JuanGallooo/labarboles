@@ -17,36 +17,43 @@ public class PanelColegios extends JPanel{
 	private JLabel[][] info;
 	
 	public PanelColegios(String[][] infoDada){
-		setPreferredSize(new Dimension(300,400));
+//		setPreferredSize(new Dimension(600,600));
 		TitledBorder bordePrincipal= new TitledBorder("Informacion Colegios Bogota");
 	    setBorder(bordePrincipal);
 	    setLayout(new BorderLayout());
 	    
 	    TitledBorder borde= new TitledBorder("");
-		MatteBorder contorno=  new MatteBorder(2, 2, 2, 2, Color.BLACK);
+		MatteBorder contorno=  new MatteBorder(1, 1, 1, 1, Color.BLACK);
 		borde.setBorder(contorno);
 		JPanel auxiliar= new JPanel();
-		auxiliar.setLayout(new GridLayout(7, 1));
+		auxiliar.setLayout(new GridLayout(1, 7));
 		cabeza= new JLabel[7];
 		String[] cabezaInfo= {"Calendario","Sector","Nombre","Telefono","Rector","Correo Electronico","Direccion"};
 		for (int i = 0; i < cabeza.length; i++) {
 			cabeza[i]= new JLabel(cabezaInfo[i]);
-			cabeza[i].setHorizontalAlignment(JLabel.CENTER);
+//			cabeza[i].setHorizontalAlignment(JLabel.CENTER);
 			cabeza[i].setBorder(borde);
+			auxiliar.add(cabeza[i]);
 		}
 	    JPanel aux=new JPanel();
 	    aux.setLayout(new GridLayout(infoDada.length, infoDada[0].length));
+	    System.out.println(infoDada.length);
+	    System.out.println(infoDada[0].length);
 		
 		info= new JLabel[infoDada.length][infoDada[0].length];
+		
+		 System.out.println(info.length);
+		    System.out.println(info[0].length);
 		for (int i = 0; i < info.length; i++) {
 			for (int j = 0; j < info[0].length; j++){
 				info[i][j]=new JLabel(infoDada[i][j]);
 				info[i][j].setHorizontalAlignment(JLabel.CENTER);
 				info[i][j].setBorder(borde);
+				aux.add(info[i][j]);
 			}
 		}
 		add(auxiliar, BorderLayout.CENTER);
 		add(aux, BorderLayout.SOUTH);
-		repaint();
+//		repaint();
 	}
 }

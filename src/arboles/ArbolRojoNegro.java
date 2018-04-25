@@ -55,7 +55,7 @@ public class ArbolRojoNegro<T extends Comparable<? super T>> {
 			revisarRaiz(raiz);
 		}
 	}
-	public ArrayList<NodoRojoNegro<Elemento>> inOrder(ArrayList<NodoRojoNegro<Elemento>> lista){
+	public ArrayList<T> inOrder(ArrayList<T> lista){
 		if( raiz!=null)raiz.inOrder(lista);
 		return lista;
 	}
