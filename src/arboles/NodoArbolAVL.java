@@ -49,7 +49,7 @@ public class NodoArbolAVL <T extends Comparable>{
 		
 		int resultado = 0;
 		try{
-			resultado = this.getElemento().compareTo(c.getElemento());
+			resultado = c.getElemento().compareTo(this.getElemento());
 			if(resultado > 0){
 				resultado = 1;
 			}
