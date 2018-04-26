@@ -3,20 +3,27 @@ package mundo;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.ArrayList;
 
+import arboles.Arbol;
+import arboles.ArbolAVL;
 import arboles.ArbolRojoNegro;
+import arboles.NodoArbol;
+import arboles.NodoArbolAVL;
 import arboles.NodoRojoNegro;
 
 public class ControladorColegios {
 	
+	private ArbolAVL<Colegio> avl;
 	private ArbolRojoNegro<Colegio> arn;
 	private NodoRojoNegro<Colegio> nill;
+	private Arbol<Colegio> abb;
 	private String[][] infoColegios;
 	
 	public ControladorColegios(){
 		nill= new NodoRojoNegro<Colegio>();
 		arn= new ArbolRojoNegro<Colegio>(nill);
+		avl = new ArbolAVL<Colegio>();
+		abb= new Arbol<Colegio>();
 	}
 	public void cargarArchivos() throws Exception{
 		cargarArchivosArn();
@@ -43,12 +50,15 @@ public class ControladorColegios {
 				NodoRojoNegro<Colegio> nodoAgregar= new NodoRojoNegro<Colegio>(agregar,nill);
 				try {
 					arn.agregarNodo(nodoAgregar);
-//					mensaje= br.readLine();
+					agregar.setBusquedaActual(0);
+					avl.insertar(agregar);
+					agregar.setBusquedaActual(2);
+					NodoArbol<Colegio> nodoAgregarABB= new NodoArbol<Colegio>(agregar);
+					abb.agregarNodo(nodoAgregarABB);
 				} catch (Exception e) {
 //					System.out.println(contador);
 //					contador++;
 				}
-				if(agregar!=null) {
 				infoColegios[contador][0]= agregar.getCalendario();
 				infoColegios[contador][1]= agregar.getSector();
 				infoColegios[contador][2]= agregar.getNombre();
@@ -56,7 +66,6 @@ public class ControladorColegios {
 				infoColegios[contador][4]= agregar.getRector();
 				infoColegios[contador][5]= agregar.getCorreo();
 				infoColegios[contador][6]= agregar.getDireccion();
-				}
 				contador++;
 				mensaje= br.readLine();
 			}
@@ -64,26 +73,6 @@ public class ControladorColegios {
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new Exception("Error al leer el archivo");
-		}
-	}
-	public void generarInfoColegiosArn() {
-		ArrayList<Colegio> colegios= new ArrayList<Colegio>(); 
-		
-		arn.inOrder(colegios);
-		
-		infoColegios= new String[colegios.size()][7];
-		
-		for (int i = 0; i < colegios.size(); i++) {
-			Colegio temp= colegios.get(i);
-			if(temp!=null) {
-			infoColegios[i][0]= temp.getCalendario();
-			infoColegios[i][1]= temp.getSector();
-			infoColegios[i][2]= temp.getNombre();
-			infoColegios[i][3]= temp.getTelefono()+"";
-			infoColegios[i][4]= temp.getRector();
-			infoColegios[i][5]= temp.getCorreo();
-			infoColegios[i][6]= temp.getDireccion();
-			}
 		}
 	}
 	public ArbolRojoNegro<Colegio> getArn() {
@@ -103,5 +92,26 @@ public class ControladorColegios {
 	}
 	public void setInfoColegios(String[][] infoColegios) {
 		this.infoColegios = infoColegios;
+	}
+
+	public String buscarNombreAVL(String texto) throws Exception{
+		Colegio agregar= new Colegio("", "",  texto,"", "","", "");
+		agregar.setBusquedaActual(0);
+		NodoArbolAVL<Colegio> nodoComparar= new NodoArbolAVL<Colegio>(agregar);
+		String retorno=avl.buscarNodo(nodoComparar).getElemento().toString();
+		return retorno;
+	}
+	public String buscarTelefonoARN(String texto) throws Exception{
+		Colegio agregar= new Colegio("", "", "", texto, "","", "");
+		agregar.setBusquedaActual(1);
+		String retorno=arn.elementoBuscado(agregar);
+		return retorno;
+	}
+	public String buscarRectorABB(String texto) throws Exception{
+		Colegio agregar= new Colegio("", "", "", "", texto,"", "");
+		agregar.setBusquedaActual(2);
+		NodoArbol<Colegio> nodoComparar= new NodoArbol<Colegio>(agregar);
+		String retorno=abb.buscarNodo(nodoComparar).getElemento().toString();
+		return retorno;
 	}
 }

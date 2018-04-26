@@ -4,7 +4,7 @@ public class Colegio implements Comparable<Colegio>{
 	
 	public static final int BUSQUEDA_NOMBRE=0;
 	public static final int BUSQUEDA_TELEFONO=1;
-	public static final int BUSQUEDA_DIRECCION=2;
+	public static final int BUSQUEDA_RECTOR=2;
 	
 	private String calendario;
 	private String sector;
@@ -79,22 +79,23 @@ public class Colegio implements Comparable<Colegio>{
 	public int compareTo(Colegio o) {
 		int retorno=0;
 		if( busquedaActual==BUSQUEDA_NOMBRE) {
-			
+			if(o.getNombre().compareTo(getNombre())<0)retorno=-1;
+			else if (o.getNombre().compareTo(getNombre())>0)retorno=1;
 		}
 		else if( busquedaActual==BUSQUEDA_TELEFONO) {
 			if(o.getTelefono().compareTo(getTelefono())<0)retorno=-1;
 			else if (o.getTelefono().compareTo(getTelefono())>0)retorno=1;
 		}
 		else {
-			
+			if(o.getRector().compareTo(getRector())<0)retorno=-1;
+			else if (o.getRector().compareTo(getRector())>0)retorno=1;
 		}
 		return retorno;
 	}
 	@Override
 	public String toString() {
-		return "Colegio [calendario=" + calendario + ", sector=" + sector + ", nombre=" + nombre + ", telefono="
-				+ telefono + ", rector=" + rector + ", correo=" + correo + ", direccion=" + direccion
-				+ ", busquedaActual=" + busquedaActual + "]";
+		return "Colegio [nombre=" + nombre + ", telefono="
+				+ telefono + ", rector=" + rector + ", correo=" + correo + ", direccion=" + direccion+"]";
 	}
 	
 	
