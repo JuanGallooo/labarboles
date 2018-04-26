@@ -232,6 +232,8 @@ public class ArbolAVL <T extends Comparable> {
 			raiz.inOrder(n);
 		}
 	}
+	
+
 
 
 
