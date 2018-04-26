@@ -31,14 +31,17 @@ public  class Arbol<T extends Comparable>{
 	
 	public NodoArbol<T> eliminarNodo(NodoArbol<T> nodo)throws Exception {
 		// TODO Auto-generated method stub
+    if(raiz !=null){
 		NodoArbol<T> verificar = raiz.buscarNodo(nodo);
-	if(verificar != null){
+	 if(verificar != null){
 			raiz = raiz.eliminarNodo(nodo);
 			return raiz;
 		}
-	else{
-		throw new Exception ("El nodo a eliminar no se encuentra en el Arbol");
-	}
+	 else{
+		 throw new Exception ("El nodo a eliminar no se encuentra en el Arbol");
+	 }
+    }
+	return null;
   }
 
 	

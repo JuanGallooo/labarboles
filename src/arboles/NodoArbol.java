@@ -48,10 +48,10 @@ public class NodoArbol <T extends Comparable> implements Comparable<NodoArbol<T>
 
 
 	
-	public void agregarNodo(NodoArbol<T> nodo) {
+	public void agregarNodo(NodoArbol<T> nodo) throws Exception {
 		// TODO Auto-generated method stub
 		int resultado = this.compareTo(nodo);
-		if(resultado > 0){
+		if(resultado == 1){
 			if(izquierda == null){
 				izquierda = nodo;
 			}
@@ -59,13 +59,19 @@ public class NodoArbol <T extends Comparable> implements Comparable<NodoArbol<T>
 				izquierda.agregarNodo(nodo);
 			}
 		}
-		else{
+		else if(resultado == -1){
 			if(derecha == null){
 				derecha = nodo;
 			}
 			else{
 				derecha.agregarNodo(nodo);
 			}
+		}
+		else if (resultado == 0){
+			throw new Exception("Nodo duplicado");
+		}
+		else{
+			throw new Exception("Se deseaba insertar un null");
 		}
 	}
 
@@ -85,7 +91,7 @@ public class NodoArbol <T extends Comparable> implements Comparable<NodoArbol<T>
 	    		return izquierda;
 	    	}
 	    	NodoArbol<T> sucesor = derecha.minimo();
-	    	this.setDerecha(derecha.eliminarNodo(nodo));
+	    	this.setDerecha(derecha.eliminarNodo(sucesor));
 	    	sucesor.setIzquierda(izquierda);
 	    	sucesor.setDerecha(derecha);
 	    	return sucesor;
