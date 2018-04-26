@@ -47,14 +47,23 @@ public class ControladorColegios {
 				String direccion=infoColegio[6];
 				Colegio agregar= new Colegio(calendario, sector, nombre, telefono, rector, correo, direccion);
 				agregar.setBusquedaActual(1);
+				
 				NodoRojoNegro<Colegio> nodoAgregar= new NodoRojoNegro<Colegio>(agregar,nill);
 				try {
 					arn.agregarNodo(nodoAgregar);
-					agregar.setBusquedaActual(0);
-					avl.insertar(agregar);
-					agregar.setBusquedaActual(2);
-					NodoArbol<Colegio> nodoAgregarABB= new NodoArbol<Colegio>(agregar);
+
+					Colegio agregar2= new Colegio(calendario, sector, nombre, telefono, rector, correo, direccion);
+					agregar2.setBusquedaActual(0);
+					
+					avl.insertar(agregar2);
+					
+					Colegio agregar3= new Colegio(calendario, sector, nombre, telefono, rector, correo, direccion);
+
+					agregar3.setBusquedaActual(2);
+					
+					NodoArbol<Colegio> nodoAgregarABB= new NodoArbol<Colegio>(agregar3);
 					abb.agregarNodo(nodoAgregarABB);
+					
 				} catch (Exception e) {
 //					System.out.println(contador);
 //					contador++;
@@ -98,20 +107,35 @@ public class ControladorColegios {
 		Colegio agregar= new Colegio("", "",  texto,"", "","", "");
 		agregar.setBusquedaActual(0);
 		NodoArbolAVL<Colegio> nodoComparar= new NodoArbolAVL<Colegio>(agregar);
-		String retorno=avl.buscarNodo(nodoComparar).getElemento().toString();
+		String retorno="";
+		try {
+			retorno= avl.buscarNodo(nodoComparar).getElemento().toString();
+		} catch (Exception e) {
+			throw new Exception("Elemento no encontrado");
+		}
 		return retorno;
 	}
 	public String buscarTelefonoARN(String texto) throws Exception{
 		Colegio agregar= new Colegio("", "", "", texto, "","", "");
 		agregar.setBusquedaActual(1);
-		String retorno=arn.elementoBuscado(agregar);
+		String retorno="";
+		try {
+			retorno=arn.elementoBuscado(agregar);
+		} catch (Exception e) {
+			throw new Exception("Elemento no encontrado");
+		}
 		return retorno;
 	}
 	public String buscarRectorABB(String texto) throws Exception{
 		Colegio agregar= new Colegio("", "", "", "", texto,"", "");
 		agregar.setBusquedaActual(2);
 		NodoArbol<Colegio> nodoComparar= new NodoArbol<Colegio>(agregar);
-		String retorno=abb.buscarNodo(nodoComparar).getElemento().toString();
+		String retorno="";
+		try {
+			retorno = abb.buscarNodo(nodoComparar).getElemento().toString();
+		} catch (Exception e) {
+			throw new Exception("Elemento no encontrado");
+		}
 		return retorno;
 	}
 }

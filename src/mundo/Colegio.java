@@ -94,9 +94,11 @@ public class Colegio implements Comparable<Colegio>{
 	}
 	@Override
 	public String toString() {
-		return "Colegio [nombre=" + nombre + ", telefono="
-				+ telefono + ", rector=" + rector + ", correo=" + correo + ", direccion=" + direccion+"]";
+		return "Colegio [calendario=" + calendario + ", sector=" + sector + ", nombre=" + nombre + ", telefono="
+				+ telefono + ", rector=" + rector + ", correo=" + correo + ", direccion=" + direccion
+				+ ", busquedaActual=" + busquedaActual + "]";
 	}
+
 	
 	
 }

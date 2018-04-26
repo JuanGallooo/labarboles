@@ -40,12 +40,9 @@ public class FramePrincipal extends JFrame
 		banner= new JLabel();
 		ImageIcon icono5 = new ImageIcon("./imgs/bogota.jpg");
 		banner.setIcon(icono5);
-		
 		miPanelColegios= new PanelColegios(mundo.getInfoColegios());
 		miPanelBotones= new PanelBotones(this);
-		
 		JScrollPane deslizar= new JScrollPane(miPanelColegios);
-		
 		add(banner, BorderLayout.NORTH);
 		add(deslizar, BorderLayout.CENTER);
 		add(miPanelBotones, BorderLayout.SOUTH);
@@ -57,37 +54,34 @@ public class FramePrincipal extends JFrame
 	}
 	public void buscarNombreAVL(String texto) {
 		try {
-			Long inicio=System.currentTimeMillis();
+			Long inicio=System.nanoTime();
 			String retorno=mundo.buscarNombreAVL(texto);
-			Long finalTiempo = System.currentTimeMillis();
+			Long finalTiempo = System.nanoTime();
 			String calculo= (finalTiempo-inicio)+"";
 			JOptionPane.showMessageDialog(this,"El elemento solicitado es "+ retorno + " y su tiempo de busqueda fue de "+ calculo + "En milis");	
 		} catch (Exception e) {
-			e.printStackTrace();
 			JOptionPane.showMessageDialog(this,e.getMessage());
 		}
 	}
 	public void buscarTelefonoARN(String texto) {
 		try {
-			Long inicio=System.currentTimeMillis();
+			Long inicio=System.nanoTime();
 			String retorno=mundo.buscarTelefonoARN(texto);
-			Long finalTiempo = System.currentTimeMillis();
+			Long finalTiempo = System.nanoTime();
 			String calculo= (finalTiempo-inicio)+"";
-			JOptionPane.showMessageDialog(this,"El elemento solicitado es "+ retorno + " y su tiempo de busqueda fue de "+ calculo + "En milis");	
+			JOptionPane.showMessageDialog(this,"El elemento solicitado es "+ retorno + " y su tiempo de busqueda fue de "+ calculo + "En nano");	
 		} catch (Exception e) {
-			e.printStackTrace();
 			JOptionPane.showMessageDialog(this,e.getMessage());
 		}
 	}
 	public void buscarRectorABB(String texto) {
 		try {
-			Long inicio=System.currentTimeMillis();
+			Long inicio=System.nanoTime();
 			String retorno=mundo.buscarRectorABB(texto);
-			Long finalTiempo = System.currentTimeMillis();
+			Long finalTiempo = System.nanoTime();
 			String calculo= (finalTiempo-inicio)+"";
-			JOptionPane.showMessageDialog(this,"El elemento solicitado es "+ retorno + " y su tiempo de busqueda fue de "+ calculo + "En milis");	
+			JOptionPane.showMessageDialog(this,"El elemento solicitado es "+ retorno + " y su tiempo de busqueda fue de "+ calculo + "En nano");	
 		} catch (Exception e) {
-			e.printStackTrace();
 			JOptionPane.showMessageDialog(this,e.getMessage());
 		}
 	}
