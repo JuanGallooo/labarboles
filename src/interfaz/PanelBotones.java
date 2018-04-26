@@ -1,6 +1,5 @@
 package interfaz;
 
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,7 +7,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.border.TitledBorder;
 
 @SuppressWarnings("serial")
@@ -16,39 +14,33 @@ public class PanelBotones extends JPanel implements ActionListener{
 
 	public static final String BUSCAR_NOMBRE="BUSCAR_NOMBRE";
 	public static final String BUSCAR_TELEFONO="BUSCAR_TELEFONO";
-	public static final String BUSCAR_CORREO="BUSCAR_CORREO";
+	public static final String BUSCAR_RECTOR="BUSCAR_RECTOR";
 	
 	private JButton btnNombre;
 	private JButton btnTelefono;
-	private JButton btnCorreo;
+	private JButton btnRector;
 	
 	private FramePrincipal principal;
 	
 	public PanelBotones(FramePrincipal p) {
 		principal= p;
 		
-//		setPreferredSize(new Dimension(300,400));
 		TitledBorder borde= new TitledBorder("Opciones");
 	    setBorder(borde);
 	    setLayout(new GridLayout(1, 3));
 	    
-	    btnNombre= new JButton("Buscar Nombre(AVL)");
+	    btnNombre= new JButton("Buscar por nombre(AVL)");
 	    btnNombre.setActionCommand(BUSCAR_NOMBRE);
 	    btnNombre.addActionListener(this);
-//	    btnNombre.setPreferredSize(new Dimension(100, 100));
-	    btnTelefono= new JButton("Buscar telefono(ARN)");
+	    btnTelefono= new JButton("Buscar por telefono(ARN)");
 	    btnTelefono.setActionCommand(BUSCAR_TELEFONO);
 	    btnTelefono.addActionListener(this);
-//	    btnTelefono.setPreferredSize(new Dimension(100, 100));
-	    btnCorreo= new JButton("Buscar Correo Electronico(ABB)");
-	    btnCorreo.setActionCommand(BUSCAR_CORREO);
-	    btnCorreo.addActionListener(this);
-//	    btnCorreo.setPreferredSize(new Dimension(100, 100));
-	    
-	    
+	    btnRector= new JButton("Buscar por rector(ABB)");
+	    btnRector.setActionCommand(BUSCAR_RECTOR);
+	    btnRector.addActionListener(this);
 	    add(btnNombre);
 	    add(btnTelefono);
-	    add(btnCorreo);
+	    add(btnRector);
 	}
 
 	@Override
@@ -58,7 +50,7 @@ public class PanelBotones extends JPanel implements ActionListener{
 		if( !texto.equals("") && texto != null) {
 		if( seleccion.equals(BUSCAR_NOMBRE))principal.buscarNombreAVL(texto);
 		else if( seleccion.equals(BUSCAR_TELEFONO))principal.buscarTelefonoARN(texto);
-		else if( seleccion.equals(BUSCAR_CORREO))principal.buscarCorreoABB(texto);
+		else if( seleccion.equals(BUSCAR_RECTOR))principal.buscarRectorABB(texto);
 		}
 		else JOptionPane.showMessageDialog(this, "Elemento no valido", "Error", JOptionPane.WARNING_MESSAGE);
 	}

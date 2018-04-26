@@ -27,7 +27,6 @@ public class FramePrincipal extends JFrame
 		mundo= new ControladorColegios();
 		try {
 			mundo.cargarArchivos();
-//			mundo.generarInfoColegiosArn();
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this, e.getMessage());
 			e.printStackTrace();
@@ -57,12 +56,39 @@ public class FramePrincipal extends JFrame
 		ventana.setVisible(true);
 	}
 	public void buscarNombreAVL(String texto) {
-		
+		try {
+			Long inicio=System.currentTimeMillis();
+			String retorno=mundo.buscarNombreAVL(texto);
+			Long finalTiempo = System.currentTimeMillis();
+			String calculo= (finalTiempo-inicio)+"";
+			JOptionPane.showMessageDialog(this,"El elemento solicitado es "+ retorno + " y su tiempo de busqueda fue de "+ calculo + "En milis");	
+		} catch (Exception e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(this,e.getMessage());
+		}
 	}
 	public void buscarTelefonoARN(String texto) {
-		
+		try {
+			Long inicio=System.currentTimeMillis();
+			String retorno=mundo.buscarTelefonoARN(texto);
+			Long finalTiempo = System.currentTimeMillis();
+			String calculo= (finalTiempo-inicio)+"";
+			JOptionPane.showMessageDialog(this,"El elemento solicitado es "+ retorno + " y su tiempo de busqueda fue de "+ calculo + "En milis");	
+		} catch (Exception e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(this,e.getMessage());
+		}
 	}
-	public void buscarCorreoABB(String texto) {
-		
+	public void buscarRectorABB(String texto) {
+		try {
+			Long inicio=System.currentTimeMillis();
+			String retorno=mundo.buscarRectorABB(texto);
+			Long finalTiempo = System.currentTimeMillis();
+			String calculo= (finalTiempo-inicio)+"";
+			JOptionPane.showMessageDialog(this,"El elemento solicitado es "+ retorno + " y su tiempo de busqueda fue de "+ calculo + "En milis");	
+		} catch (Exception e) {
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(this,e.getMessage());
+		}
 	}
 }

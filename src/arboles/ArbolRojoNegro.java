@@ -17,6 +17,16 @@ public class ArbolRojoNegro<T extends Comparable<? super T>> {
 	public void setRaiz(NodoRojoNegro<T> raiz) {
 		this.raiz = raiz;
 	}
+	public String elementoBuscado(T elemento) throws Exception{
+		String retorno="";
+		try {
+			retorno=raiz.buscarElemento(elemento).getElemento().toString();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new Exception("No se encuentra el elemento buscado");
+		}
+		return retorno;
+	}
 	
 	public void agregarNodo(NodoRojoNegro<T> nodo) throws Exception {
 		if(raiz == null){

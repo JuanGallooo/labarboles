@@ -2,7 +2,7 @@ package arboles;
 
 import java.util.ArrayList;
 
-public class ArbolAVL <T extends Comparable> {
+public class ArbolAVL <T extends Comparable<? super T>> {
 	
 	private NodoArbolAVL <T> raiz;
 	
@@ -59,19 +59,19 @@ public class ArbolAVL <T extends Comparable> {
 	}
 	
 	public NodoArbolAVL <T> rotacionDobleIzquierda (NodoArbolAVL <T> c){
-		NodoArbolAVL temporal = null;
+		NodoArbolAVL<T> temporal = null;
 		c.setIzquierda(this.rotacionDerecha((NodoArbolAVL<T>) c.getIzquierda()));
 	    temporal = this.rotacionIzquierda(c);
 	    return temporal;
 	}
 	public NodoArbolAVL <T> rotacionDobleDerecha(NodoArbolAVL <T> c){
-		NodoArbolAVL temporal = null;
+		NodoArbolAVL<T> temporal = null;
 		c.setDerecha(this.rotacionIzquierda(c.getDerecha()));
 	    temporal = this.rotacionDerecha(c);
 	    return temporal;
 	}
 	
-	public NodoArbolAVL<T> insertarAVL (NodoArbolAVL<T> nuevo, NodoArbolAVL subAr){
+	public NodoArbolAVL<T> insertarAVL (NodoArbolAVL<T> nuevo, NodoArbolAVL<T> subAr){
 		NodoArbolAVL<T> nuevoPadre = subAr;
 		if(nuevo.compareTo(subAr) == -1){
 			if(subAr.getIzquierda() == null){
@@ -110,7 +110,7 @@ public class ArbolAVL <T extends Comparable> {
 			
 		}
 		else{
-			System.out.println("Nodo Duplicado");
+//			System.out.println("Nodo Duplicado");
 		}
 		if(subAr.getIzquierda() == null && subAr.getDerecha() != null){
 			subAr.setEstado(subAr.getDerecha().getEstado() + 1);
@@ -134,10 +134,10 @@ public class ArbolAVL <T extends Comparable> {
 		}
 	}
 	
-	public void eliminarAVL (T elemento, NodoArbolAVL subAr)throws Exception{
-		NodoArbolAVL eliminar = new NodoArbolAVL (elemento);
-		NodoArbolAVL auxiliar = subAr;
-		NodoArbolAVL padre = subAr;
+	public void eliminarAVL (T elemento, NodoArbolAVL<T> subAr)throws Exception{
+		NodoArbolAVL<T> eliminar = new NodoArbolAVL<T> (elemento);
+		NodoArbolAVL<T> auxiliar = subAr;
+		NodoArbolAVL<T> padre = subAr;
 		boolean esHijoIzq = true;
 		while(auxiliar.compareTo(eliminar) != 0){
 			padre = auxiliar;
@@ -185,7 +185,7 @@ public class ArbolAVL <T extends Comparable> {
 			}
 		}
 		else{
-			NodoArbolAVL reemplazo = obtenerNodoAVLReemplazo(auxiliar);
+			NodoArbolAVL<T> reemplazo = obtenerNodoAVLReemplazo(auxiliar);
 		    if(auxiliar.compareTo(raiz)==0){
 		    	raiz = reemplazo;
 		    }
@@ -210,10 +210,10 @@ public class ArbolAVL <T extends Comparable> {
 	  
 	}
 	
-	public NodoArbolAVL obtenerNodoAVLReemplazo (NodoArbolAVL nodoReemp){
-		NodoArbolAVL reemplazarPadre = nodoReemp;
-		NodoArbolAVL reemplazo = nodoReemp;
-		NodoArbolAVL auxiliar = nodoReemp.getDerecha();
+	public NodoArbolAVL<T> obtenerNodoAVLReemplazo (NodoArbolAVL<T> nodoReemp){
+		NodoArbolAVL<T> reemplazarPadre = nodoReemp;
+		NodoArbolAVL<T> reemplazo = nodoReemp;
+		NodoArbolAVL<T> auxiliar = nodoReemp.getDerecha();
 		
 		while(auxiliar != null){
 			reemplazarPadre = reemplazo;
