@@ -22,7 +22,6 @@ public class ArbolRojoNegro<T extends Comparable<? super T>> {
 		try {
 			retorno=raiz.buscarElemento(elemento).getElemento().toString();
 		} catch (Exception e) {
-			e.printStackTrace();
 			throw new Exception("No se encuentra el elemento buscado");
 		}
 		return retorno;

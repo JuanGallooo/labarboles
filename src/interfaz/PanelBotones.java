@@ -46,7 +46,7 @@ public class PanelBotones extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		String seleccion= arg0.getActionCommand();
-		String texto= JOptionPane.showInputDialog(this, "Ingrese el respectivo dato de busqueda");
+		String texto= JOptionPane.showInputDialog(this, "Ingrese el respectivo dato de busqueda \n en mayuscula y completo");
 		if( texto != null&& !texto.equals("")) {
 		if( seleccion.equals(BUSCAR_NOMBRE))principal.buscarNombreAVL(texto);
 		else if( seleccion.equals(BUSCAR_TELEFONO))principal.buscarTelefonoARN(texto);

@@ -87,8 +87,8 @@ public class Colegio implements Comparable<Colegio>{
 			else if (o.getTelefono().compareTo(getTelefono())>0)retorno=1;
 		}
 		else {
-			if(o.getRector().compareTo(getRector())<0)retorno=-1;
-			else if (o.getRector().compareTo(getRector())>0)retorno=1;
+			if(o.getRector().compareToIgnoreCase(getRector())<0)retorno=-1;
+			else if (o.getRector().compareToIgnoreCase(getRector())>0)retorno=1;
 		}
 		return retorno;
 	}
