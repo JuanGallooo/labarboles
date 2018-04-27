@@ -58,7 +58,7 @@ public class FramePrincipal extends JFrame
 			String retorno=mundo.buscarNombreAVL(texto);
 			Long finalTiempo = System.nanoTime();
 			String calculo= (finalTiempo-inicio)+"";
-			JOptionPane.showMessageDialog(this,"El elemento solicitado es "+ retorno + " y su tiempo de busqueda fue de "+ calculo + "En milis");	
+			JOptionPane.showMessageDialog(this,"El elemento solicitado es "+ retorno + " y su tiempo de busqueda fue de "+ calculo + "En nanosegundos");	
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this,e.getMessage());
 		}
@@ -69,7 +69,7 @@ public class FramePrincipal extends JFrame
 			String retorno=mundo.buscarTelefonoARN(texto);
 			Long finalTiempo = System.nanoTime();
 			String calculo= (finalTiempo-inicio)+"";
-			JOptionPane.showMessageDialog(this,"El elemento solicitado es "+ retorno + " y su tiempo de busqueda fue de "+ calculo + "En nano");	
+			JOptionPane.showMessageDialog(this,"El elemento solicitado es "+ retorno + " y su tiempo de busqueda fue de "+ calculo + "En nanosegundos");	
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this,e.getMessage());
 		}
@@ -80,7 +80,7 @@ public class FramePrincipal extends JFrame
 			String retorno=mundo.buscarRectorABB(texto);
 			Long finalTiempo = System.nanoTime();
 			String calculo= (finalTiempo-inicio)+"";
-			JOptionPane.showMessageDialog(this,"El elemento solicitado es "+ retorno + " y su tiempo de busqueda fue de "+ calculo + "En nano");	
+			JOptionPane.showMessageDialog(this,"El elemento solicitado es "+ retorno + " y su tiempo de busqueda fue de "+ calculo + "En nanosegundos");	
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this,e.getMessage());
 		}
